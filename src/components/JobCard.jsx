@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
 import { CiLocationOn } from 'react-icons/ci';
 import { AiOutlineDollar } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 const JobCard = ({job}) => {
-  const {logo, job_title, company_name, remote_or_onsite, job_type, location, salary} = job;
-  console.log(job);
+  const {id, logo, job_title, company_name, remote_or_onsite, job_type, location, salary} = job;
+
+  const navigate = useNavigate();
+  const handleClick = (jobId) => {
+    navigate(`/jobs/${jobId}`);
+  }
 
   return (
     <div className="bg-gradient-to-r from-[rgba(126,144,254,0.05)] to-[rgba(152,115,255,0.05)] p-8 rounded-lg">
@@ -25,7 +30,7 @@ const JobCard = ({job}) => {
           <span>{salary}</span>
         </div>
       </div>
-      <button className="btn btn-primary">View Details</button>
+      <button onClick={() => handleClick(id)} className="btn btn-primary">View Details</button>
     </div>
   );
 };

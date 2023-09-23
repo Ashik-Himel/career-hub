@@ -1,8 +1,10 @@
+import PageHeader from "../components/PageHeader";
+
 const AppliedJobs = () => {
   return (
-    <div>
-      <h1>Applied Jobs</h1>
-    </div>
+    <main>
+      <PageHeader title={'Applied Jobs'}></PageHeader>
+    </main>
   );
 };
 
